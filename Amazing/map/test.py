@@ -1,4 +1,18 @@
-from maze import Maze
+import pygame
 
-laby = Maze.gen_wilson(12,12)
-print(laby)
+class test:
+
+    def __int__(self, posx, posy, height, width, surface, couleur):
+
+        self.posx = posx
+        self.posy = posy
+        self.height = height
+        self.width = width
+        self.surface = surface
+        self.couleur = couleur
+
+        rect = (posx, posy, height, width)
+        pygame.draw.rect(surface,couleur,rect)
+
+
+
