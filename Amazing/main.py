@@ -3,12 +3,13 @@ import pygame.draw
 import Const
 from map.GameZone import Zone
 
+
 pygame.init()
 
 #Création de la fenêtre
 pygame.display.set_caption('Amazing - Le jeu génial')
 surface = pygame.display.set_mode((480, 720))
-surface_jeu = Zone(40, 40, 400, 400)
+surface.blit(Zone(400, 400).game_surface, (40, 40))
 
 
 
