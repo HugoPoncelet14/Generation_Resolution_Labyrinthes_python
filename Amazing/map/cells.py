@@ -4,7 +4,7 @@ import Amazing.Const
 
 
 class Cells:
-    def __int__(self, surface, nb_cells):
+    def __init__(self, surface, nb_cells):
 
         self.surface = surface
         self.nb_cells = nb_cells
