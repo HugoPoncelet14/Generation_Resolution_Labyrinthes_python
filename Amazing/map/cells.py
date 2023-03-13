@@ -7,8 +7,6 @@ class Cells:
     def __int__(self, surface, nb_cells):
 
         self.surface = surface
-        """self.height = height
-        self.width = width"""
         self.nb_cells = nb_cells
 
 

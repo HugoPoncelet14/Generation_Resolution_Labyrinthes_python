@@ -11,19 +11,15 @@ pygame.init()
 # Création de la fenêtre
 pygame.display.set_caption('Amazing - Le jeu génial')
 surface = pygame.display.set_mode((480, 720))
-jeu = Zone(400, 400).game_surface
+jeu = Zone(400, 400).game_surface #A remplacer par maze.zone
 surface.blit(jeu , (40, 40))
 
 #Création de repères temporaires
 rect = pygame.Rect(0, 0, 40, 720)
 pygame.draw.rect(surface, Const.ROUGE, rect)
 
-# Essai de création de cases
 
-cells = Cells()
-cells.surface = jeu
-cells.nb_cells = 10
-cells.create()
+
 
 """pair = 2
 for i in range(40, 401, 40):  # 45 = pos x première case, on en met 10 et les cases sont séparés de 40
