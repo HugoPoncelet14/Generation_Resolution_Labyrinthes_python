@@ -43,7 +43,33 @@ class Cells:
         self.cells = {(i, j): [] for i in range(self.nb_cells) for j in range(self.nb_cells)}
 
 
+    def add_wall(self, c1, c2):
+        # Facultatif : on teste si les sommets sont bien dans le labyrinthe
+        assert 0 <= c1[0] < self.surface.get_height() and \
+               0 <= c1[1] < self.surface.get_width() and \
+               0 <= c2[0] < self.surface.get_height() and \
+               0 <= c2[1] < self.surface.get_width(), \
+            f"Erreur lors de l'ajout d'un mur entre {c1} et {c2} : les coordonnées de sont pas compatibles avec les dimensions du labyrinthe"
+        # Ajout du mur
 
+        if c2 in self.cells[c1]:  # Si c2 est dans les voisines de c1
+            self.cells[c1].remove(c2)  # on le retire
+        if c1 in self.cells[c2]:  # Si c3 est dans les voisines de c2
+            self.cells[c2].remove(c1)  # on le retire
+
+    def remove_wall(self, c1, c2):
+        # Facultatif : on teste si les sommets sont bien dans le labyrinthe
+        assert 0 <= c1[0] < self.surface.get_height() and \
+               0 <= c1[1] < self.surface.get_width() and \
+               0 <= c2[0] < self.surface.get_height() and \
+               0 <= c2[1] < self.surface.get_width(), \
+            f"Erreur lors de l'ajout d'un mur entre {c1} et {c2} : les coordonnées de sont pas compatibles avec les dimensions du labyrinthe"
+        # Ajout du mur
+
+        if c2 not in self.cells[c1]:  # Si c2 est dans les voisines de c1
+            self.cells[c1].append(c2)  # on le retire
+        if c1 not in self.cells[c2]:  # Si c3 est dans les voisines de c2
+            self.cells[c2].append(c1)  # on le retire
 
 
 

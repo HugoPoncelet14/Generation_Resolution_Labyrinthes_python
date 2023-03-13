@@ -24,6 +24,10 @@ cells.empty()
 print(cells.cells)
 cells.fill()
 print(cells.cells)
+cells.remove_wall((0, 0), (0, 1))
+print(cells.cells)
+cells.add_wall((0, 0), (0, 1))
+print(cells.cells)
 
 
 
