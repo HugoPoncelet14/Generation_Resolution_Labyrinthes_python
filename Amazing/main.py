@@ -19,9 +19,11 @@ pygame.draw.rect(surface, Const.ROUGE, rect)
 
 #Test
 jeu = Zone(400,400)
-cells = Cells(jeu, 10)
-cells.create()
-print(cells.get_contiguous_cells((1, 2)))
+cells = Cells(jeu, 5)
+cells.empty()
+print(cells.cells)
+cells.fill()
+print(cells.cells)
 
 
 

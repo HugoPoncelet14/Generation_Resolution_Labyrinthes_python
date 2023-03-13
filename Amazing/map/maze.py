@@ -9,10 +9,13 @@ jeu = Zone(400, 400).game_surface
 
 class Maze:
 
-    def __init__(self, surface, taille, side):
+    def __init__(self, surface, taille, side, fill):
 
         self.surface = Zone(side, side)
         self.cells = Cells(surface, taille)
+        self.fill = fill
+
+
 
     def add_wall(self, c1, c2):
         # Facultatif : on teste si les sommets sont bien dans le labyrinthe
