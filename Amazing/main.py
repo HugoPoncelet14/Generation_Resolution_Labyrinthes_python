@@ -5,7 +5,6 @@ from map.GameZone import Zone
 from map.cells import Cells
 
 
-
 pygame.init()
 
 # Création de la fenêtre
@@ -18,6 +17,11 @@ surface.blit(jeu , (40, 40))
 rect = pygame.Rect(0, 0, 40, 720)
 pygame.draw.rect(surface, Const.ROUGE, rect)
 
+#Test
+jeu = Zone(400,400)
+cells = Cells(jeu, 10)
+cells.create()
+print(cells.get_contiguous_cells((1, 2)))
 
 
 

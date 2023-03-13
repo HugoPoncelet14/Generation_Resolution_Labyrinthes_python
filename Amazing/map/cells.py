@@ -1,5 +1,4 @@
 import pygame
-
 import Amazing.Const
 
 
@@ -37,3 +36,21 @@ voir si c'est utile plus tard
                 cj += 1
             ci += 1
         return self.cells
+
+    #A faire get_contiguous_cells qui retournera une list
+
+    def get_contiguous_cells(self, c):
+        cells = []
+        if c[0] - 1 >= 0:  # Si la cellule du dessus est dans les dimensions du labyrinthe
+            cells.append((c[0] - 1, c[1]))
+
+        if c[0] + 1 < self.surface.get_height():  # Si la cellule du dessous est dans les dimensions du labyrinthe
+            cells.append((c[0] + 1, c[1]))
+
+        if c[1] - 1 >= 0:  # Si la cellule à gauche est dans les dimensions du labyrinthe
+            cells.append((c[0], c[1] - 1))
+
+        if c[1] + 1 < self.surface.get_width():  # Si la cellule à droite est dans les dimensions du labyrinthe
+            cells.append((c[0], c[1] + 1))
+        return cells
+

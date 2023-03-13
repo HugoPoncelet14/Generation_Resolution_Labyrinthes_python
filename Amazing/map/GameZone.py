@@ -9,7 +9,6 @@ class Zone:
 
 
     def __init__(self, width: int, height: int):
-        import Amazing.main
 
         self.height = height
         self.width = width
@@ -17,6 +16,11 @@ class Zone:
         self.game_surface = pygame.Surface((self.height, self.width))
         self.game_surface.fill(Amazing.Const.NONE)
 
+    def get_height(self):
+        return self.height
+
+    def get_width(self):
+        return self.width
 
 
 
