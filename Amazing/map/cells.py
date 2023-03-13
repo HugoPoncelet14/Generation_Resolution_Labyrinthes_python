@@ -38,5 +38,4 @@ voir si c'est utile plus tard
                 test.append((ci, cj))
                 cj += 1
             ci += 1
-        print(self.cells)
-        print(test)
+        return self.cells
