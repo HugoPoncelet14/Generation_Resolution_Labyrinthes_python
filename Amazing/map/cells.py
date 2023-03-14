@@ -71,6 +71,16 @@ class Cells:
         if c1 not in self.cells[c2]:  # Si c3 est dans les voisines de c2
             self.cells[c2].append(c1)  # on le retire
 
+    def get_reachable_cells(self, c):
+        accessibles = []
+        voisines = self.get_contiguous_cells(c)
+        for i in range(len(voisines)):
+            if voisines[i] in self.cells[c]:
+                accessibles.append(voisines[i])
+        return accessibles
+
+
+
 
 
 

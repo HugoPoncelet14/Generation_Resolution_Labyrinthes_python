@@ -26,24 +26,10 @@ cells.fill()
 print(cells.cells)
 cells.remove_wall((0, 0), (0, 1))
 print(cells.cells)
+print(cells.get_reachable_cells((0,0)))
 cells.add_wall((0, 0), (0, 1))
 print(cells.cells)
 
-
-
-"""pair = 2
-for i in range(40, 401, 40):  # 45 = pos x première case, on en met 10 et les cases sont séparés de 40
-    for j in range(40, 401, 40):  # 45 = pos y première case
-        pygame.display.flip()
-        if pair % 2 == 0:
-            pygame.draw.rect(surface, Const.WHITE, (i, j, 40, 40))
-
-            print(f"pair{(i, j)}")
-        else:
-            pygame.draw.rect(surface, Const.BLACK, (i, j, 40, 40))
-            print(f"impair {(i, j)}")
-        pair += 1
-    pair -= 1"""
 
 # Boucle de jeu
 while True:
