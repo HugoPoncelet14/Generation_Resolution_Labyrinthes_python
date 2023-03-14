@@ -3,6 +3,7 @@ import pygame
 
 from Amazing.map.cells import Cells
 from Amazing.map.GameZone import Zone
+import Amazing.Const
 
 
 
@@ -50,4 +51,12 @@ class Maze:
         return self.laby
 
 
+    def afficher(self):
 
+        for i in self.laby.cells.keys():
+            s = pygame.Surface((self.surface.get_height()//self.taille, self.surface.get_width()//self.taille))
+            s.fill(Amazing.Const.NONE)
+            print(i[0])
+            self.surface.game_surface.blit(s,
+                ((i[0]*self.surface.get_height()//self.taille,
+                  i[1]*self.surface.get_height()//self.taille)))
