@@ -1,8 +1,10 @@
 import sys
 import pygame.draw
+
 import Const
 from map.GameZone import Zone
 from map.cells import Cells
+from map.maze import Maze
 
 
 pygame.init()
@@ -29,7 +31,8 @@ print(cells.cells)
 print(cells.get_reachable_cells((0,0)))
 cells.add_wall((0, 0), (0, 1))
 print(cells.cells)
-
+laby = Maze(jeu, 10, 400, True)
+print(laby.gen_exploration())
 
 # Boucle de jeu
 while True:
