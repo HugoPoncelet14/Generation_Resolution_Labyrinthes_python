@@ -31,8 +31,10 @@ print(cells.cells)
 print(cells.get_reachable_cells((0,0)))
 cells.add_wall((0, 0), (0, 1))
 print(cells.cells)
-laby = Maze(jeu, 10, 400, True)
-print(laby.gen_exploration())
+laby = Maze(jeu, 4, 400, True)
+laby.gen_exploration()
+print(laby.laby.cells)
+laby.afficher()
 
 # Boucle de jeu
 while True:

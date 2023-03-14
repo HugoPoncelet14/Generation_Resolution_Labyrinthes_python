@@ -1,4 +1,6 @@
 from random import *
+import pygame
+
 from Amazing.map.cells import Cells
 from Amazing.map.GameZone import Zone
 
@@ -11,12 +13,12 @@ class Maze:
     def __init__(self, surface, taille, side, fill):
 
         self.surface = Zone(side, side)
-        self.cellules = Cells(surface, taille)
+        self.laby = Cells(surface, taille)
         self.fill = fill
         self.taille = taille
 
         if self.fill:
-            self.cellules.fill()
+            self.laby.fill()
 
     def gen_exploration(self):
         # Initialisation
@@ -29,7 +31,7 @@ class Maze:
             continuer = True
             # La position devient la dernière cellule de la pile et la supprime de la pile
             position = pile.pop()
-            voisins = list(self.cellules.get_contiguous_cells(position))
+            voisins = list(self.laby.get_contiguous_cells(position))
             shuffle(voisins)
             i = 0
             while i < len(voisins) and continuer == True:
@@ -39,11 +41,13 @@ class Maze:
                     pile.append(position)
                     # On casse le mur
                     print(voisins)
-                    self.cellules.remove_wall(position, voisins[i])
+                    self.laby.remove_wall(position, voisins[i])
                     # On ajoute la cellule à la pile et aux cellules visités
                     visited.append(voisins[i])
                     pile.append(voisins[i])
                     continuer = False
                 i += 1
-        return self.cellules
+        return self.laby
+
+
 

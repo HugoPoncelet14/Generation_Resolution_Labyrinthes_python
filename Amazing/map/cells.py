@@ -24,13 +24,13 @@ class Cells:
         if c[0] - 1 >= 0:  # Si la cellule du dessus est dans les dimensions du labyrinthe
             cells.append((c[0] - 1, c[1]))
 
-        if c[0] + 1 < self.surface.get_height()//self.nb_cells:  # Si la cellule du dessous est dans les dimensions du labyrinthe
+        if c[0] + 1 < self.nb_cells:  # Si la cellule du dessous est dans les dimensions du labyrinthe
             cells.append((c[0] + 1, c[1]))
 
         if c[1] - 1 >= 0:  # Si la cellule à gauche est dans les dimensions du labyrinthe
             cells.append((c[0], c[1] - 1))
 
-        if c[1] + 1 < self.surface.get_width()//self.nb_cells:  # Si la cellule à droite est dans les dimensions du labyrinthe
+        if c[1] + 1 < self.nb_cells:  # Si la cellule à droite est dans les dimensions du labyrinthe
             cells.append((c[0], c[1] + 1))
         return cells
 
