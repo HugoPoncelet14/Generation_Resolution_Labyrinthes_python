@@ -1,4 +1,6 @@
 import pygame
+import pygame.draw
+
 import Amazing.Const
 
 

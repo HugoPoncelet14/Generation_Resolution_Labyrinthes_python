@@ -29,11 +29,21 @@ print(cells.cells)
 laby = Maze(jeu, 10, 400, True)
 laby.gen_exploration()
 
-jeu = laby.surface.game_surface #A remplacer par maze.zone
-jeu.fill(Const.GREEN)
+
+
+
+bords = pygame.Surface((408, 408))
+bords.fill(Const.WHITE)
+surface.blit(bords, (36, 36))
+
+jeu = laby.surface.game_surface
+jeu.fill(Const.BLACK)
 surface.blit(laby.afficher(jeu),(40, 40))
-"""surface.blit(jeu, (40, 40))"""
-print(laby.laby.cells)
+
+police = pygame.font.Font("font/8-bit-pusab.ttf", 16)
+text_surface = police.render("AMAZING", True, Const.WHITE)
+surface.blit(text_surface, (175, 5))
+
 
 # Boucle de jeu
 while True:

@@ -6,9 +6,6 @@ from Amazing.map.GameZone import Zone
 import Amazing.Const
 
 
-
-jeu = Zone(400, 400).game_surface
-
 class Maze:
 
     def __init__(self, surface, taille, side, fill):
@@ -54,7 +51,7 @@ class Maze:
 
         for i in self.laby.cells.keys():
             s = pygame.Surface((self.surface.get_height()//self.taille, self.surface.get_width()//self.taille))
-            s.fill(Amazing.Const.GREEN)
+            s.fill(Amazing.Const.BLACK)
             for j in self.laby.get_contiguous_cells(i):
                 if j not in self.laby.cells[i]:
 
