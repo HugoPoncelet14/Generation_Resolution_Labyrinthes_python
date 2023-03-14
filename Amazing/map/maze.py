@@ -41,7 +41,6 @@ class Maze:
                     # On ajout le position à la pile
                     pile.append(position)
                     # On casse le mur
-                    print(voisins)
                     self.laby.remove_wall(position, voisins[i])
                     # On ajoute la cellule à la pile et aux cellules visités
                     visited.append(voisins[i])
@@ -51,12 +50,45 @@ class Maze:
         return self.laby
 
 
-    def afficher(self):
+    def afficher(self, surface):
 
         for i in self.laby.cells.keys():
             s = pygame.Surface((self.surface.get_height()//self.taille, self.surface.get_width()//self.taille))
-            s.fill(Amazing.Const.NONE)
-            print(i[0])
-            self.surface.game_surface.blit(s,
-                ((i[0]*self.surface.get_height()//self.taille,
-                  i[1]*self.surface.get_height()//self.taille)))
+            s.fill(Amazing.Const.GREEN)
+            for j in self.laby.get_contiguous_cells(i):
+                if j not in self.laby.cells[i]:
+
+                    if j == (i[0], i[1]-1):
+                        print(f"je place un mur entre {j} et {i}")
+                        print((i[0]-1, i[1]))
+                        rect = pygame.Rect(0, 0, s.get_width()+4, 4)
+                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+
+                    elif j == (i[0]+1, i[1]):
+                        print(f"je place un mur entre {j} et {i}")
+                        print((i[0]+1, i[1]))
+                        rect = pygame.Rect(0, s.get_height(), s.get_width()+4, 4)
+                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+
+                    elif j == (i[0]-1, i[1]):
+                        print(f"je place un mur entre {j} et {i}")
+                        print((i[0], i[1]-1))
+                        rect = pygame.Rect(0, 0, 4, s.get_height()+4)
+                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+
+                    elif j == (i[0], i[1]+1):
+                        print(f"je place un mur entre {j} et {i}")
+                        print((i[0], i[1]+1))
+                        rect = pygame.Rect(s.get_width(), 0, 4, s.get_height()+4)
+                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+
+
+
+
+
+
+            surface.blit(s,
+                (i[0]*(self.surface.get_height()//self.taille),
+                  i[1]*(self.surface.get_height()//self.taille)))
+            pygame.display.update()
+        return surface

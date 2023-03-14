@@ -12,12 +12,7 @@ pygame.init()
 # Création de la fenêtre
 pygame.display.set_caption('Amazing - Le jeu génial')
 surface = pygame.display.set_mode((480, 720))
-jeu = Zone(400, 400).game_surface #A remplacer par maze.zone
-surface.blit(jeu , (40, 40))
 
-#Création de repères temporaires
-rect = pygame.Rect(0, 0, 40, 720)
-pygame.draw.rect(surface, Const.ROUGE, rect)
 
 #Test
 jeu = Zone(400,400)
@@ -31,10 +26,14 @@ print(cells.cells)
 print(cells.get_reachable_cells((0,0)))
 cells.add_wall((0, 0), (0, 1))
 print(cells.cells)
-laby = Maze(jeu, 4, 400, True)
+laby = Maze(jeu, 10, 400, True)
 laby.gen_exploration()
+
+jeu = laby.surface.game_surface #A remplacer par maze.zone
+jeu.fill(Const.GREEN)
+surface.blit(laby.afficher(jeu),(40, 40))
+"""surface.blit(jeu, (40, 40))"""
 print(laby.laby.cells)
-laby.afficher()
 
 # Boucle de jeu
 while True:
