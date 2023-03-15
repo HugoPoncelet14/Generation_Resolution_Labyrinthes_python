@@ -1,7 +1,7 @@
 import pygame
 import pygame.draw
 
-import Amazing.Const
+from Amazing.Const import *
 
 
 """
@@ -16,7 +16,7 @@ class Zone:
         self.width = width
 
         self.game_surface = pygame.Surface((self.height, self.width))
-        self.game_surface.fill(Amazing.Const.NONE)
+        self.game_surface.fill(NONE)
 
     def get_height(self):
         return self.height

@@ -3,7 +3,7 @@ import pygame
 
 from Amazing.map.cells import Cells
 from Amazing.map.GameZone import Zone
-import Amazing.Const
+from Amazing.Const import *
 
 
 class Maze:
@@ -51,41 +51,61 @@ class Maze:
 
         for i in self.laby.cells.keys():
             s = pygame.Surface((self.surface.get_height()//self.taille, self.surface.get_width()//self.taille))
-            s.fill(Amazing.Const.BLACK)
+            s.fill(BLACK)
             for j in self.laby.get_contiguous_cells(i):
                 if j not in self.laby.cells[i]:
 
                     if j == (i[0], i[1]-1):
-                        print(f"je place un mur entre {j} et {i}")
-                        print((i[0]-1, i[1]))
                         rect = pygame.Rect(0, 0, s.get_width()+4, 4)
-                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+                        pygame.draw.rect(s, WHITE, rect)
 
                     elif j == (i[0]+1, i[1]):
-                        print(f"je place un mur entre {j} et {i}")
-                        print((i[0]+1, i[1]))
                         rect = pygame.Rect(0, s.get_height(), s.get_width()+4, 4)
-                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+                        pygame.draw.rect(s, WHITE, rect)
 
                     elif j == (i[0]-1, i[1]):
-                        print(f"je place un mur entre {j} et {i}")
-                        print((i[0], i[1]-1))
                         rect = pygame.Rect(0, 0, 4, s.get_height()+4)
-                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
+                        pygame.draw.rect(s, WHITE, rect)
 
                     elif j == (i[0], i[1]+1):
-                        print(f"je place un mur entre {j} et {i}")
-                        print((i[0], i[1]+1))
                         rect = pygame.Rect(s.get_width(), 0, 4, s.get_height()+4)
-                        pygame.draw.rect(s, Amazing.Const.WHITE, rect)
-
-
-
-
-
+                        pygame.draw.rect(s, WHITE, rect)
+            if i == (self.taille-1, self.taille-1):
+                image = pygame.image.load("images/image_processing20200510-8902-odjy03.png")
+                image = pygame.transform.scale(image, (self.surface.height//self.taille -4,self.surface.width//self.taille -4))
+                s.blit(image, (0, 0))
 
             surface.blit(s,
                 (i[0]*(self.surface.get_height()//self.taille),
                   i[1]*(self.surface.get_height()//self.taille)))
             pygame.display.update()
         return surface
+
+    def len_solve_dfs(self, D, A):
+        pile = [D]
+        pile.append(D)
+        cell_marques = []
+        dict_pred = {}
+        dict_pred[D] = D
+        cell_A_trouve = False
+
+        while len(cell_marques) < self.taille ** 2 and cell_A_trouve == False:
+            c = pile.pop(0)
+            if c == A:
+                cell_A_trouve = True
+            else:
+                voisines_c = self.laby.get_reachable_cells(c)
+                for l in range(len(voisines_c)):
+                    if voisines_c[l] not in cell_marques:
+                        cell_marques.append(voisines_c[l])
+                        pile.insert(0, voisines_c[l])
+                        dict_pred[voisines_c[l]] = c
+
+        c = A
+        chemin = []
+        while c != D:
+            chemin.append(c)
+            c = dict_pred[c]
+        chemin.append(D)
+
+        return len(chemin)
