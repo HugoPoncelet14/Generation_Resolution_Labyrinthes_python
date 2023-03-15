@@ -33,6 +33,6 @@ Vous pouvez quitter le jeu à tout moment grâce à la touche echap, ou la croix
 
 **Message des élèves**
 
-Le jeu ne propose malheureusement pas d'items ou de pouvoirs, bien qu'il ne soit pas très complèxe, nous sommes fiers de vous proposer un jeu fonctionnel avec le temps que nous avons eu.
+Le jeu ne propose malheureusement pas d'items ou de pouvoirs, bien qu'il ne soit pas très complèxe, nous sommes fiers de vous proposer un jeu fonctionnel avec le temps que nous avons eu et nous serrions contents d'en avoir un retour.
 
 
