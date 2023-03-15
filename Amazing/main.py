@@ -2,8 +2,8 @@ import sys
 import pygame.draw
 
 from Const import *
-from map.GameZone import Zone
-from map.maze import Maze
+from GameZone import Zone
+from maze import Maze
 
 
 pygame.init()

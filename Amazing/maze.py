@@ -1,9 +1,9 @@
 from random import *
 import pygame
 
-from Amazing.map.cells import Cells
-from Amazing.map.GameZone import Zone
-from Amazing.Const import *
+from cells import Cells
+from GameZone import Zone
+from Const import *
 
 
 class Maze:
@@ -73,7 +73,7 @@ class Maze:
             if i == (self.taille-1, self.taille-1):
                 image = pygame.image.load("images/image_processing20200510-8902-odjy03.png")
                 image = pygame.transform.scale(image, (self.surface.height//self.taille -4,self.surface.width//self.taille -4))
-                s.blit(image, (0, 0))
+                s.blit(image, (4, 4))
 
             surface.blit(s,
                 (i[0]*(self.surface.get_height()//self.taille),

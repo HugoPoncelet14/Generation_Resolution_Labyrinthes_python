@@ -1,7 +1,7 @@
 import pygame
 import pygame.draw
 
-from Amazing.Const import *
+from Const import *
 
 
 """
