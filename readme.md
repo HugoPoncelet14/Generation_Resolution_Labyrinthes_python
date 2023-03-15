@@ -10,7 +10,7 @@ Vous pourrez retrouver la l'entièreté de la "partie obligatoire" de la sae dan
 
 Amazing est le nom de code du jeu **Rocklike**, le jeu développé dans le cadre de la partie bonus de la saé. Vous pourrez le retrouver dans le fichier Amazing.
 
-Pour essayer le jeu, executez le fichier grâce à un IDE tel que Visual Studio Code ou PyCharm.
+Pour essayer le jeu, executez le fichier ``main.py ``grâce à un IDE tel que Visual Studio Code ou PyCharm.
 Vous pouvez aussi l'executer via l'invite de commande, en vous plaçant dans le répertoire Amazing et en tapant la commande:
     
     python main.py
